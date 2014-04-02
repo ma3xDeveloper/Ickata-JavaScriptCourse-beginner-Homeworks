@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Hello, world!</title>
+   <script type="text/javascript">
+   // ask the user for his/her name
+   var gender = prompt( 'Please enter Mrs or Mrs:' );
+   var firstName = prompt( 'Please enter your First name:' );
+   var lastName = prompt( 'Please enter your Last name:' );
+
+   var salute  = 'Hello, ' + gender + ', ' + firstName + ' ' + lastName + '!';
+   // say personalized hello
+   alert( salute );
+   // change browser title line
+   document.documentElement.firstChild.firstChild.nextSibling.innerHTML = salute;
+   </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>02</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <script>
+
+      // Print
+      function print() {
+        
+         for (var i in shopping_cart ) {
+            
+            s = ' '; 
+            x = ' '; 
+
+            space = 65 - (shopping_cart[i].product.length 
+                      + shopping_cart[i].price.toFixed(2).length);
+
+            while (s.length <= space){ 
+              s += x; 
+            }
+
+           console.log(shopping_cart[i].product 
+                        + s 
+                        + shopping_cart[i].price.toFixed(2));
+         }
+      }
+
+      var shopping_cart = [
+         { product : 'T-shirt', price : 10 },
+         { product : 'Jeans', price : 69.9 },
+         { product : 'Jacket', price : 119.99 }
+      ];
+
+      print(shopping_cart);
+
+    </script>
+</body>
+</html>

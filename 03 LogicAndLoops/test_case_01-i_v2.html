@@ -1,78 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>typeOf</title>
-   <script type="text/javascript">
+    <title>typeOf</title>
+    <script type="text/javascript">
 
-       function typeOf(variable) {
+        function typeOf(variable) {
 
-           if (typeof (variable) == "object") {
+            if (typeof (variable) == "object") {
 
-               if (variable === null) {
-                   return "null";
-               }
+                switch (true) {
+                    case variable === null:
+                        return "null";
 
-               else if (variable.constructor == (new Array).constructor) {
-                   return "array";
-               }
+                    case variable.constructor == Array:
+                        return "array";
 
-               else if (variable.constructor == (new Boolean).constructor) {
-                   return "boolean";
-               }
+                    case variable.constructor == (new Boolean).constructor:
+                        return "boolean";
 
-               else if (variable.constructor == (new Number).constructor) {
-                   return "number";
-               }
+                    case variable.constructor == (new Number).constructor:
+                        return "number";
 
-               else if (variable.constructor == (new String).constructor) {
-                   return "string";
-               }
+                    case variable.constructor == (new String).constructor:
+                        return "string";
 
-               else {
-                   return "object";
-               }
-           }
-          
-           else if (typeof (variable) == "number") {
+                    default:
+                        return "object";
+                }
+            }
 
-               variable = Number(variable);
+            else if (typeof (variable) == "number") {
 
-               // if variable is NaN, NaN != NaN is true, otherwise it's false
-               if (variable != variable) {
-                   return "NaN"
-               }
+                variable = Number(variable);
 
-               else {
-                   return "number"
-               }
-           }
+                // if variable is NaN, NaN != NaN is true, otherwise it's false
+                if (variable != variable) {
+                    return "NaN"
+                }
 
-           else {
-               return typeof (variable);
-           }
-       }
+                else {
+                    return "number"
+                }
+            }
 
-    //our test cases
-   var types = {
-    'undefined' : [ undefined ],
-    'null'      : [ null ],
-    'NaN'       : [ NaN ],
-    'boolean'   : [ false, new Boolean(true) ],
-    'string'    : [ 'lorem', new String('ipsum') ],
-    'number'    : [ 1, new Number(0) ],
-    'array'     : [ [] ],
-    'object'    : [ {} ]
-   };
+            else {
+                return typeof (variable);
+            }
+        }
 
-   for ( var type in types ) {
-      types[ type ].forEach( function ( item ) {
-         console.assert( typeOf( item ) === type, item + ' is ' + type );
-      });
-   }
+        //our test cases
+        var types = {
+            'undefined': [undefined],
+            'null': [null],
+            'NaN': [NaN],
+            'boolean': [false, new Boolean(true)],
+            'string': ['lorem', new String('ipsum')],
+            'number': [1, new Number(0)],
+            'array': [[]],
+            'object': [{}]
+        };
+
+        for (var type in types) {
+            types[type].forEach(function (item) {
+                console.assert(typeOf(item) === type, item + ' is ' + type);
+            });
+        }
 
    </script>
 </head>
 <body>
-
 </body>
 </html>

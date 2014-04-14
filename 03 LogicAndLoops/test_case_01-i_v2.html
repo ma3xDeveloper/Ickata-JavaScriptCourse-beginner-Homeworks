@@ -15,13 +15,13 @@
                 case variable.constructor == Array:
                     return "array";
 
-                case variable.constructor == (new Boolean).constructor:
+                case variable.constructor == Boolean:
                     return "boolean";
 
-                case variable.constructor == (new Number).constructor:
+                case variable.constructor == Number:
                     return "number";
 
-                case variable.constructor == (new String).constructor:
+                case variable.constructor == String:
                     return "string";
 
                 default:

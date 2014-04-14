@@ -9,23 +9,23 @@
             if (typeof (variable) == "object") {
 
                 switch (true) {
-                    case variable === null:
-                        return "null";
+                case variable === null:
+                    return "null";
 
-                    case variable.constructor == Array:
-                        return "array";
+                case variable.constructor == Array:
+                    return "array";
 
-                    case variable.constructor == (new Boolean).constructor:
-                        return "boolean";
+                case variable.constructor == (new Boolean).constructor:
+                    return "boolean";
 
-                    case variable.constructor == (new Number).constructor:
-                        return "number";
+                case variable.constructor == (new Number).constructor:
+                    return "number";
 
-                    case variable.constructor == (new String).constructor:
-                        return "string";
+                case variable.constructor == (new String).constructor:
+                    return "string";
 
-                    default:
-                        return "object";
+                default:
+                    return "object";
                 }
             }
 

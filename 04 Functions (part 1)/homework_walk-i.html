@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>walk</title>
+    <script type="text/javascript">
+
+
+        function typeOf(variable) {
+
+            if (typeof (variable) == "object") {
+
+                if (variable === null) {
+                    return "null";
+                }
+
+                else if (variable.constructor == (new Array).constructor) {
+                    return "array";
+                }
+
+                else if (variable.constructor == (new Boolean).constructor) {
+                    return "boolean";
+                }
+
+                else if (variable.constructor == (new Number).constructor) {
+                    return "number";
+                }
+
+                else if (variable.constructor == (new String).constructor) {
+                    return "string";
+                }
+
+                else {
+                    return "object";
+                }
+            }
+
+            else if (typeof (variable) == "number") {
+
+                v = Number(variable);
+
+                // if x is NaN, NaN != NaN is true, otherwise it's false
+                if (variable != variable) {
+                    return "NaN"
+                }
+
+                else {
+                    return "number"
+                }
+            }
+
+            else {
+                return typeof (variable);
+            }
+        }
+
+        walk({
+            'Course Name': 'JavaScript for beginners',
+            'Duration (hours)': 36,
+            'Student List': [
+               'Tom', 'John', 'Jane', 'Jill', 'Peter'
+            ],
+            'Lector': {
+                'Name': 'Hristo Chakarov',
+                'Age': 29,
+                'Title': 'Front-end Architect'
+            }
+        });
+
+        function walk(walk) {
+
+            Object.keys(walk).forEach(function (key) {
+
+                if (typeOf(key) && typeOf(walk[key]) === "string") {
+                    console.log(key + ": " + walk[key]);
+                }
+
+                else if (typeOf(key) === "string" && typeOf(walk[key]) === "number") {
+                    console.log(key + ": " + walk[key]);
+                }
+
+                else if (typeOf(key) === "string" && typeOf(walk[key]) === "array") {
+                    console.log(key + ":");
+
+                    for (var i = 0, l = walk[key].length - 1; i <= l; i++) {
+                        console.log("   " + (i + 1) + ": " + walk[key][i]);
+                    }
+                }
+
+                else if (typeOf(key) === "string" && typeOf(walk[key]) === "object") {
+                    console.log(key + ":");
+
+                    for (var i in walk[key]) {
+                        console.log("   " + i + ": " + walk[key][i]);
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

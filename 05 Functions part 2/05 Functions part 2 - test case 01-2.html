@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Functions part 2</title>
+  <script type="text/javascript">
+      // Implementation
+      function Storage() {
+          var name;
+          var value;
+
+          var names;
+
+          this.get = function (name) { // !!!
+              return name;
+          };
+          this.set = function (name, value) {
+               name = value;
+          };
+          this.getMultiple = function (names) {
+              return names;
+          };
+          this.setMultiple = function (pairs) {
+              names = pairs;
+          };
+      }
+
+      // Instantiation
+      var storage = new Storage();
+      var another_storage = new Storage();
+
+      /*---------------------------------------------------------------- TEST CASES */ 
+      // `get`, `set`
+      storage.set('name', 'Hristo');
+      console.assert(storage.get('name') == 'Hristo', 'The `name` is properly set to "Hristo"');
+      console.assert(typeof (storage.name) == 'undefined', 'Properties set via `set` are encapsulated');
+
+      // `getMultiple`, `setMultiple`
+      storage.setMultiple({
+          age: 28,
+          gender: 'male'
+      });
+      console.assert(storage.get('age') == 28, 'The `age` is properly set to 28');
+      console.assert(storage.getMultiple(['name', 'gender']).toString() == 'Hristo, male', '`name` and `gender` have "Hristo" and "male" values');
+      console.assert(typeof (storage.gender) == 'undefined', 'Properties set via `setMultiple` are encapsulated');
+
+      // properties set directly should not affect the storage
+      storage.position = 'Front-end architect';
+      console.assert(storage.get('position') === undefined, 'Properties can only be set via `set` and `setMultiple` methods');
+
+      // different Storage instances must not interfere
+      console.assert(!another_storage.position && !another_storage.get('name'), 'Every `Storage` instance has its own set of properties');
+
+
+     
+  </script>
+</head>
+<body>
+
+</body>
+</html>

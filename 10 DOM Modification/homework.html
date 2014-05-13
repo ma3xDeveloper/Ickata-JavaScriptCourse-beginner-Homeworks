@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head></head>
+<body>
+    <div id="result"></div>
+    <script>
+
+        //(function () {
+
+        //    function walk(data, level) {
+        //        level = level || 1;       
+        //        for (var key in data) {
+        //            if (data.hasOwnProperty(key)) {
+        //                var index = Number(key);
+        //                // get the proper key name; if `data` is Array, increment with 1
+        //                var name = isNaN(index) ? key : index + 1;
+        //                switch (typeof data[key]) {
+        //                    case 'object':    // Object, Array
+        //                        console.log(indent(level), name + ':');
+        //                        // recursively walk the object, increment `level`
+        //                        walk(data[key], level + 1);
+        //                        break;
+        //                    default:
+        //                        // primitive data - just print
+        //                        console.log(indent(level), name + ':', data[key]);
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    function indent(level) {
+        //        level = level || 0;
+        //        return new Array(level).join('   ');
+        //    }
+
+        //    // create global `walk` function that will call our private `walk`
+        //    // in order to protect the `level` param
+        //    window.walk = function (data) {
+        //        walk(data);
+        //    };
+        //})();
+
+        var data = [
+           { label: 'Ordered Item 1' },
+           {
+               label: 'Ordered Item 2',
+               list: [
+                  { label: 'Ordered Sub Item 2.1' },
+                  { label: 'Ordered Sub Item 2.2' },
+                  { label: 'Ordered Sub Item 2.3' }
+               ]
+           },
+           {
+               label: 'Ordered Item 3',
+               list: {
+                   1: {
+                       label: 'Unordered Sub Item 3.1',
+                       list: {
+                           1: { label: 'Unordered Sub Item 3.1.1' },
+                           2: { label: 'Unordered Sub Item 3.1.2' }
+                       }
+                   },
+                   2: { label: 'Sub Item 3.2' },
+                   3: {
+                       label: 'Sub Item 3.3',
+                       list: [
+                          { label: 'Ordered Sub Item 3.3.1' },
+                          { label: 'Ordered Sub Item 3.3.2' },
+                          { label: 'Ordered Sub Item 3.3.3' }
+                       ]
+                   }
+               }
+           }
+        ];
+
+
+        var DEFAULT_INDENT = '  ';
+
+        function indentList(list, indent) {
+            //initially the indent is empty
+            indent = indent || '';
+            for (var i in list) {
+                if (list[i].label) {
+                    console.log(indent + list[i].label);
+                }
+                //Traverse the nested list, if such and append more indent
+                if (list[i].list) {
+                    indentList(list[i].list, indent + DEFAULT_INDENT);
+                }
+            }
+        }
+
+        indentList(data);
+
+</script>
+</body>
+</html>

@@ -26,48 +26,58 @@
     <div id="calculator"></div>
 
     <script type="text/javascript">
-        var div = document.querySelector('#calculator');
+        var div = document.querySelector("#calculator");
 
         div.innerHTML = [
-      "<form>",
+        "<form>",
             "<table>",
-            "<tr>",
-               "<td class = td colspan=\'4\' id=\'right\'>123</td>",
-            "</tr>",
-            "<tr>",
-                "<td class = td>1</td>",
-                "<td class = td>2</td>",
-                "<td class = td>3</td>",
-                "<td class = td>+</td>",
-            "</tr>",
-            "<tr>",
-               " <td class = td>4</td>",
-                "<td class = td>5</td>",
-                "<td class = td>6</td>",
-                "<td class = td>-</td>",
-            "</tr>",
-            "<tr>",
-               "<td class = td>7</td>",
-                "<td class = td>8</td>",
-                "<td class = td>9</td>",
-                "<td class = td>*</td>",
-            "</tr>",
-            "<tr>",
-                "<td class = td colspan=\'2\'>0</td>",
-                "<td class = td>.</td>",
-                "<td class = td>/</td>",
-           "</tr>",
-        "</table>",
-   "</form>"
-        ].join('');
+                "<tr>",
+                   "<td colspan=\"4\">123</td>",
+                "</tr>",
+                "<tr>",
+                    "<td>1</td>",
+                    "<td>2</td>",
+                    "<td>3</td>",
+                    "<td>+</td>",
+                "</tr>",
+                "<tr>",
+                    "<td>4</td>",
+                    "<td>5</td>",
+                    "<td>6</td>",
+                    "<td>-</td>",
+                "</tr>",
+                "<tr>",
+                   "<td>7</td>",
+                    "<td>8</td>",
+                    "<td>9</td>",
+                    "<td>*</td>",
+                "</tr>",
+                "<tr>",
+                    "<td colspan=\"2\">0</td>",
+                    "<td>.</td>",
+                    "<td>/</td>",
+               "</tr>",
+            "</table>",
+        "</form>"
+        ].join("");
 
         var table = document.getElementsByTagName("table")[0];
         table.setAttribute("style", "background-color: #a10000; border-collapse: collapse");
 
-        var td = table.querySelectorAll(".td");
+        //var td = table.querySelectorAll(".td");
 
-        for (var i = 0; i < td.length; i++) {
-            td[i].setAttribute("style", "background-color: #f00; color: white; text-align: center; width: 23px; border:2px solid #5b0202");
+        //for (var i = 0; i < td.length; i++) {
+        //    td[i].setAttribute("style", "background-color: #f00; color: white; text-align: center; width: 23px; border:2px solid #5b0202");
+        //}
+
+        var trs = t.getElementsByTagName("tr");
+        var tds = null;
+
+        for (var i = 0; i < trs.length; i++) {
+            tds = trs[i].getElementsByTagName("td");
+            for (var n = 0; n < trs.length; n++) {
+                tds[n].setAttribute("style", "background-color: #f00; color: white; text-align: center; width: 23px; border:2px solid #5b0202");
+            }
         }
 
     </script>

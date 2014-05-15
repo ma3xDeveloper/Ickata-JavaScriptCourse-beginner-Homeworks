@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head></head>
+<body>
+    <div class="test-element">
+        Hello, DOM!
+    </div>
+
+    <script type="text/javascript" src="../Scripts/helpers.js"></script>
+    <script type="text/javascript" src="../Scripts/dom_api.js"></script>
+    <script>
+        /** 
+         * @function getElemsByClass
+         * Usage: document.body.getElemsByClass('.test-element');   // returns collection (NodeList)
+         *
+         * @function getStyle
+         * Usage: element.getStyle('color');                        // returns element.style.color, cross-browser
+         *
+         * @function setStyle
+         * Usage: element.setStyle('opacity', .5);                  // returns element.style.opacity = .5, cross-browser
+        **/
+
+
+
+
+        function setStyle(nameSet, value, elem) {
+            var nameSet1 = nameSet;
+            var value1 = value;
+            var elem1 = elem;
+            csd = elem.styles;
+
+            csd.arguments = "2";
+
+
+        };
+
+
+
+
+
+        // test cases
+        var elem = getElemsByClass('test-element')[0];
+        var styles = {
+            'color': '#ff0000',
+            'text-align': 'center',
+            'opacity': 0.5,
+            'border': '1px solid #ff0000',
+            'borderRadius': '5px'
+        };
+
+        //for ( var name in styles ) {
+        //   setStyle( name, styles[ name ], elem );
+        //   console.assert( getStyle( name, elem ) == styles[ name ], 'Element does not have ' + name + ' style!' );
+        //}
+
+        //var stylesString = JSON.stringify(styles);
+        //elem.setAttribute("style", stylesString.toString);
+
+</script>
+</body>
+</html>

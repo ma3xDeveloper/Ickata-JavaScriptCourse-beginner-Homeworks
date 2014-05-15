@@ -70,12 +70,12 @@
         //    td[i].setAttribute("style", "background-color: #f00; color: white; text-align: center; width: 23px; border:2px solid #5b0202");
         //}
 
-        var trs = t.getElementsByTagName("tr");
+        var trs = table.getElementsByTagName("tr");
         var tds = null;
 
         for (var i = 0; i < trs.length; i++) {
             tds = trs[i].getElementsByTagName("td");
-            for (var n = 0; n < trs.length; n++) {
+            for (var n = 0; n < tds.length; n++) {
                 tds[n].setAttribute("style", "background-color: #f00; color: white; text-align: center; width: 23px; border:2px solid #5b0202");
             }
         }
